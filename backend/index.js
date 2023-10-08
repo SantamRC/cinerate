@@ -18,4 +18,21 @@ db.connect(err => {
 
 const app = express();
 
+app.get('/movies', (req, res) => {
+    let query = "SELECT * FROM movies"
+    db.query(query, (err, result) => {
+        if (err) throw err;
+        res.status(200).send(result)
+    })
+})
+
+app.get('/ratings/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    let query = `SELECT * FROM ratings WHERE movie = '${id}'`
+    db.query(query, (err, result) => {
+        if (err) throw err;
+        res.status(200).send(result)
+    })
+})
+
 app.listen(3000, console.log('Server listening on port:3000'));
