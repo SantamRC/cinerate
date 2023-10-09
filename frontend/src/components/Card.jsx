@@ -16,13 +16,10 @@ export default function Card({ data }) {
         />
       </div>
 
-      <Link
-        to={data.name ? `/tvshow/${data.id}` : `/movie/${data.id}`}
-        className="card-body"
-      >
+      <Link to={`/movie/${data.id}`} className="card-body">
         <div className="rating">
           <MdStar />
-          <span>{data.vote_average.toFixed(1)}</span>
+          <span>{data.vote_average}</span>
         </div>
         <h4>{data.title ? data.title : data.name}</h4>
         <p>{`${data.overview.slice(0, 150)}...`}</p>

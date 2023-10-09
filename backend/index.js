@@ -20,8 +20,10 @@ db.connect(err => {
 const app = express();
 app.use(cors())
 
-app.get('/movies', (req, res) => {
-    let query = "SELECT * FROM movies"
+app.get('/movies/:page', (req, res) => {
+    const page = parseInt(req.params.page);
+    let offset = (page - 1) * 20;
+    let query = `SELECT * FROM movies LIMIT 20 OFFSET ${offset}`
     db.query(query, (err, result) => {
         if (err) throw err;
         res.status(200).send(result)
@@ -34,6 +36,15 @@ app.get('/ratings/:id', (req, res) => {
     db.query(query, (err, result) => {
         if (err) throw err;
         res.status(200).send(result)
+    })
+})
+
+app.get('/moviedetails/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    let query = `SELECT * FROM movies WHERE id = '${id}'`
+    db.query(query, (err, result) => {
+        if (err) throw err;
+        res.status(200).send(result[0])
     })
 })
 

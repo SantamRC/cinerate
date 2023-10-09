@@ -14,7 +14,7 @@ export default function Movies({ movies, title, type }) {
       </div>
 
       <div className="movies-page-link-container">
-        <Link to={`/movies/${type}`} className="btn btn-primary">
+        <Link to={`/movies`} className="btn btn-primary">
           View more
         </Link>
       </div>
