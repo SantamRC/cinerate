@@ -12,7 +12,7 @@ import RootLayout from "../layouts/RootLayout";
 // import SearchLayout from "./layouts/SearchLayout";
 
 // /* Pages */
-// import Home from "./pages/home/Home";
+import Home from "./home/Home";
 // import Movies from "./pages/movies/Movies";
 // import PopularMovies from "./pages/movies/PopularMovies";
 // import MovieDetails from "./pages/movieDetails/MovieDetails";
@@ -28,9 +28,9 @@ import RootLayout from "../layouts/RootLayout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      {/* <Route index element={<Home />} />
+      <Route index element={<Home />} />
 
-      <Route path="movies" element={<MoviesLayout />}>
+      {/* <Route path="movies" element={<MoviesLayout />}>
         <Route index element={<PopularMovies />} />
         <Route
           path=":type"

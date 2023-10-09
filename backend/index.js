@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors');
 
 const db = mysql.createConnection({
     host: 'localhost',
@@ -17,6 +18,7 @@ db.connect(err => {
 })
 
 const app = express();
+app.use(cors())
 
 app.get('/movies', (req, res) => {
     let query = "SELECT * FROM movies"
@@ -35,4 +37,12 @@ app.get('/ratings/:id', (req, res) => {
     })
 })
 
-app.listen(3000, console.log('Server listening on port:3000'));
+app.get('/topmovies', (req, res) => {
+    let query = "SELECT * FROM movies LIMIT 10"
+    db.query(query, (err, result) => {
+        if (err) throw err;
+        res.status(200).send(result)
+    })
+})
+
+app.listen(2023, console.log('Server listening on port:2023'));
