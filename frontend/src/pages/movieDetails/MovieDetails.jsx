@@ -21,7 +21,7 @@ export default function MovieDetails() {
   return (
     <main className="container movie-details-container">
       <MoviePoster movie={details.movies} />
-      {/* <Details res={details} /> */}
+      <Details res={details} />
     </main>
   );
 }

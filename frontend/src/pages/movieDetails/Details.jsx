@@ -2,13 +2,15 @@ import modifyDate from "../../utils/modifyDate";
 import modifyRuntime from "../../utils/modifyRuntime";
 
 export default function Details({ res }) {
-  const {
-    spoken_languages: languages,
-    runtime,
-    release_date,
-    production_companies,
-    homepage
-  } = res.movieInfo;
+  // const {
+  //   spoken_languages: languages,
+  //   runtime,
+  //   release_date,
+  //   production_companies,
+  //   homepage
+  // } = res.movieInfo;
+
+  const { release_date } = res.movies;
 
   return (
     <section className="movie-section details-section">
@@ -24,33 +26,33 @@ export default function Details({ res }) {
         </div>
         <hr />
 
-        <div className="runtime">
+        {/* <div className="runtime">
           <p className="movie-info-para">
             <strong>Runtime</strong>
             <span>{modifyRuntime(runtime)}</span>
           </p>
-        </div>
+        </div> */}
         <hr />
 
-        <div className="official-site">
+        {/* <div className="official-site">
           <p className="movie-info-para">
             <strong>Official site</strong>
             <a href={homepage} target="_blank" rel="noopener noreferrer">
               Visit here
             </a>
           </p>
-        </div>
+        </div> */}
         <hr />
 
-        <div className="language">
+        {/* <div className="language">
           <p className="movie-info-para">
             <strong>{languages.length > 1 ? "Languages" : "Language"}</strong>
             <span>{languages.map(lang => lang.english_name).join(", ")}</span>
           </p>
-        </div>
+        </div> */}
         <hr />
 
-        <div className="production-companies">
+        {/* <div className="production-companies">
           <p className="movie-info-para">
             <strong>Production companies</strong>
             <span>
@@ -58,7 +60,7 @@ export default function Details({ res }) {
                 "<Data not available>"}
             </span>
           </p>
-        </div>
+        </div> */}
         <hr />
       </div>
     </section>
