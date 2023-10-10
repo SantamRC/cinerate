@@ -16,7 +16,7 @@ import Home from "./home/Home";
 import PopularMovies from "./movies/PopularMovies";
 import MovieDetails from "./movieDetails/MovieDetails";
 import MoviesSearch from "./search/MoviesSearch";
-// import AboutUs from "./AboutUs";
+import AboutUs from "./AboutUs";
 import NotFound from "./NotFound";
 
 const router = createBrowserRouter(
@@ -42,7 +42,7 @@ const router = createBrowserRouter(
 
       <Route path="search" element={<MoviesSearch />} />
 
-      {/* <Route path="about" element={<AboutUs />} /> */}
+      <Route path="about" element={<AboutUs />} />
 
       <Route path="*" element={<NotFound />} />
     </Route>
