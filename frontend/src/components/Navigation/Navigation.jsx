@@ -1,8 +1,29 @@
 import { NavLink, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import { HomeTab, MoviesTab, SearchTab, AboutTab, GoogleTab } from "./Buttons";
 import SignIn from "../../services/googleSignIn";
+import UseLocalStorage from "../../hooks/useLocalStorage";
 
 export default function Navigation() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+    if (id != null) setLoggedIn(true);
+    else setLoggedIn(false);
+  }, []);
+
+  const handleLogin = () => {
+    SignIn(setLoggedIn);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
+    setLoggedIn(false);
+  };
+
   return (
     <div className="navigation-container">
       {/* <div className="logo-container">
@@ -42,13 +63,23 @@ export default function Navigation() {
             </NavLink>
           </li>
           <li>
-            <div
-              className="navigation-link"
-              aria-label="Google SignIn"
-              onClick={SignIn}
-            >
-              <GoogleTab />
-            </div>
+            {isLoggedIn ? (
+              <div
+                className="navigation-link"
+                aria-label="Google SignIn"
+                onClick={handleLogout}
+              >
+                <GoogleTab logged={true} />
+              </div>
+            ) : (
+              <div
+                className="navigation-link"
+                aria-label="Google SignIn"
+                onClick={handleLogin}
+              >
+                <GoogleTab logged={false} />
+              </div>
+            )}
           </li>
         </ul>
       </nav>

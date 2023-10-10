@@ -5,7 +5,7 @@ const provider = new GoogleAuthProvider();
 
 const auth = getAuth();
 
-export default function SignIn() {
+export default function SignIn(setLoggedIn) {
 
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -14,7 +14,10 @@ export default function SignIn() {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            console.log(user.uid)
+            console.log(user.displayName)
+            localStorage.setItem('id', user.uid)
+            localStorage.setItem('name', user.displayName)
+            setLoggedIn(true)
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;

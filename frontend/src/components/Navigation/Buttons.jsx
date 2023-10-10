@@ -1,5 +1,7 @@
 import { MdHomeFilled, MdTheaters, MdSearch, MdPerson } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
+import { BsPersonCircle } from "react-icons/bs";
+import UseLocalStorage from "../../hooks/useLocalStorage";
 
 export const HomeTab = () => {
   return (
@@ -37,11 +39,19 @@ export const AboutTab = () => {
   );
 };
 
-export const GoogleTab = () => {
-  return (
-    <>
-      <FcGoogle />
-      <span>Google SignIn</span>
-    </>
-  );
+export const GoogleTab = ({ logged }) => {
+  if (!logged)
+    return (
+      <>
+        <FcGoogle />
+        <span>Google SignIn</span>
+      </>
+    );
+  else
+    return (
+      <>
+        <BsPersonCircle />
+        <span>{UseLocalStorage()}</span>
+      </>
+    );
 };
