@@ -32,6 +32,7 @@ export default function Ratings({ res }) {
     UpdateRatings(res.movies.id, personID, ratingValue);
     setRatings();
     setRating(false);
+    window.location.reload(false);
   };
 
   return (
@@ -39,7 +40,6 @@ export default function Ratings({ res }) {
       <h2>Ratings</h2>
       <div className="ratings-card">
         {ratings.map((item) => {
-          if (item.person == personID) setUserRated(true);
           return (
             <PersonCard
               key={item.person}

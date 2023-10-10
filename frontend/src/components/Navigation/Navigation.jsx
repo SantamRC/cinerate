@@ -22,6 +22,7 @@ export default function Navigation() {
     localStorage.removeItem("id");
     localStorage.removeItem("name");
     setLoggedIn(false);
+    window.location.reload(false);
   };
 
   return (
