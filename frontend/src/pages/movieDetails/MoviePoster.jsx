@@ -6,8 +6,6 @@ import use3dAnimation from "../../hooks/use3dAnimation";
 export default function MoviePoster({ movie }) {
   const { animateCard, removeAnimation } = use3dAnimation();
 
-  console.log(movie);
-
   return (
     <section
       className="movie-poster-section"

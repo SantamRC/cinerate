@@ -1,12 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
-import {
-  HomeTab,
-  MoviesTab,
-  TvShowsTab,
-  SearchTab,
-  AboutTab,
-  ContactTab,
-} from "./Buttons";
+import { HomeTab, MoviesTab, SearchTab, AboutTab, GoogleTab } from "./Buttons";
+import SignIn from "../../services/googleSignIn";
 
 export default function Navigation() {
   return (
@@ -36,15 +30,6 @@ export default function Navigation() {
           <li>
             <NavLink
               className="navigation-link"
-              to="/tvshows"
-              aria-label="TvShows"
-            >
-              <TvShowsTab />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className="navigation-link"
               to="/search"
               aria-label="Search"
             >
@@ -57,13 +42,13 @@ export default function Navigation() {
             </NavLink>
           </li>
           <li>
-            <NavLink
+            <div
               className="navigation-link"
-              to="/contact"
-              aria-label="Contact"
+              aria-label="Google SignIn"
+              onClick={SignIn}
             >
-              <ContactTab />
-            </NavLink>
+              <GoogleTab />
+            </div>
           </li>
         </ul>
       </nav>

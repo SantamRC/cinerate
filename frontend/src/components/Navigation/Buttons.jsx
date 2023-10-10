@@ -1,11 +1,5 @@
-import {
-  MdHomeFilled,
-  MdTheaters,
-  MdDesktopWindows,
-  MdSearch,
-  MdPerson,
-  MdContactPage,
-} from "react-icons/md";
+import { MdHomeFilled, MdTheaters, MdSearch, MdPerson } from "react-icons/md";
+import { FcGoogle } from "react-icons/fc";
 
 export const HomeTab = () => {
   return (
@@ -21,15 +15,6 @@ export const MoviesTab = () => {
     <>
       <MdTheaters />
       <span>Movies</span>
-    </>
-  );
-};
-
-export const TvShowsTab = () => {
-  return (
-    <>
-      <MdDesktopWindows />
-      <span>TVShows</span>
     </>
   );
 };
@@ -52,11 +37,11 @@ export const AboutTab = () => {
   );
 };
 
-export const ContactTab = () => {
+export const GoogleTab = () => {
   return (
     <>
-      <MdContactPage />
-      <span>Contact Us</span>
+      <FcGoogle />
+      <span>Google SignIn</span>
     </>
   );
 };

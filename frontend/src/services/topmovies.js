@@ -8,7 +8,6 @@ function topmovies() {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/topmovies`, requestOptions)
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 resolve(result)
             })
             .catch(error => {

@@ -7,6 +7,7 @@ import fetchMovieDetails from "../../services/fetchMovieDetails";
 // Page Components
 import MoviePoster from "./MoviePoster";
 import Details from "./Details";
+import Ratings from "./Ratings";
 
 // Other Components
 import Loader from "../../components/Loader";
@@ -22,6 +23,7 @@ export default function MovieDetails() {
     <main className="container movie-details-container">
       <MoviePoster movie={details.movies} />
       <Details res={details} />
+      <Ratings res={details} />
     </main>
   );
 }
