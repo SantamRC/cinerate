@@ -2,7 +2,6 @@ import { BsPersonBoundingBox } from "react-icons/bs";
 import { MdStar } from "react-icons/md";
 
 export default function PersonCard({ rating }) {
-  console.log(rating);
 
   return (
     <section className="person-card">

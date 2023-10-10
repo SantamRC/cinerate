@@ -171,3 +171,16 @@
     width: 5rem;
   }
 }
+
+.rate-slider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rate-value{
+  font-size: 2rem;
+  border: 2px solid white;
+  padding: 4px;
+}
