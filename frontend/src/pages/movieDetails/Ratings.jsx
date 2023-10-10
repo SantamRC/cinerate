@@ -12,14 +12,21 @@ export default function Ratings({ res }) {
   const [userRated, setUserRated] = useState(false);
   const { id } = res.movies;
   const [ratings, setRatings] = FetchMovieRatings(id);
-
-  let personID = null;
+  const [personID, setPersonID] = useState(null);
+  const [userName, setUserName] = useState(null);
 
   console.log(res.movies.id);
 
   useEffect(() => {
-    personID = localStorage.getItem("id");
+    setPersonID(localStorage.getItem("id"));
+    setUserName(localStorage.getItem("name"));
   }, []);
+
+  const handleRating = () => {
+    const isLoggedIn = localStorage.getItem("id");
+    if (isLoggedIn) setRating(true);
+    else alert("Please Sign In");
+  };
 
   const submit = () => {
     UpdateRatings(res.movies.id, personID, ratingValue);
@@ -33,7 +40,15 @@ export default function Ratings({ res }) {
       <div className="ratings-card">
         {ratings.map((item) => {
           if (item.person == personID) setUserRated(true);
-          return <PersonCard key={item.person} rating={item} />;
+          return (
+            <PersonCard
+              key={item.person}
+              rating={item}
+              personID={item.person}
+              userID={personID}
+              name={userName}
+            />
+          );
         })}
       </div>
       {isRating ? (
@@ -54,7 +69,7 @@ export default function Ratings({ res }) {
       ) : (
         <button
           className="btn btn-primary rate-btn"
-          onClick={() => setRating(true)}
+          onClick={() => handleRating()}
         >
           {userRated ? "Update your Rating" : "Rate this Movie"}
         </button>

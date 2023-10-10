@@ -35,6 +35,10 @@ app.get('/ratings/:id', (req, res) => {
     let query = `SELECT * FROM ratings WHERE movie = '${id}'`
     db.query(query, (err, result) => {
         if (err) throw err;
+        let answer = [];
+        for(let i=0;i<result.length;i++){
+            
+        }
         res.status(200).send(result)
     })
 })
