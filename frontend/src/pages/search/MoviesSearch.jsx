@@ -1,6 +1,6 @@
 // Custom Hooks
 import useMeta from "../../hooks/useMeta";
-import useSearch from "../../hooks/useSearch";
+import useSearch from "../../services/useSearch";
 
 // Components
 import SearchForm from "./SearchForm";
@@ -25,7 +25,7 @@ export default function MoviesSearch() {
         ""
       ) : (
         <div className="cards">
-          <Cards data={res.data.results} />
+          <Cards data={res.movies} />
         </div>
       )}
     </section>

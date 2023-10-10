@@ -1,12 +1,7 @@
 import { useEffect, useRef } from "react";
 import { MdSearch } from "react-icons/md";
 
-export default function SearchForm({
-  type,
-  query,
-  handleQuery,
-  handleSearchForm
-}) {
+export default function SearchForm({ type, query, handleQuery, handleSearchForm }) {
   const field = useRef("");
   useEffect(() => field.current.focus(), []);
 
@@ -24,7 +19,8 @@ export default function SearchForm({
         required
         ref={field}
         value={query}
-        onChange={e => handleQuery(e.target.value)}
+        onChange={(e) => handleQuery(e.target.value)}
+        style={{ color: "white" }}
       />
       <button type="submit">
         <MdSearch />

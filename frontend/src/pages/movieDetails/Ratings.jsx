@@ -22,9 +22,9 @@ export default function Ratings({ res }) {
   }, []);
 
   const submit = () => {
-    setRating(false);
     UpdateRatings(res.movies.id, personID, ratingValue);
     setRatings();
+    setRating(false);
   };
 
   return (

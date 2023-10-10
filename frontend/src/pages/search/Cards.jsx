@@ -1,6 +1,7 @@
 import Card from "../../components/Card";
 
 export default function Cards({ data }) {
+  console.log(data);
   if (data.length > 0) {
     return (
       <>

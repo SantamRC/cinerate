@@ -79,4 +79,13 @@ app.get('/topmovies', (req, res) => {
     })
 })
 
+app.get('/search/:query', (req, res) => {
+    let searchQuery = req.params.query
+    let query = `SELECT * FROM movies WHERE title LIKE '%${searchQuery}%'`
+    db.query(query, (err, result) => {
+        if (err) throw err;
+        res.status(200).send(result)
+    })
+})
+
 app.listen(2023, console.log('Server listening on port:2023'));
