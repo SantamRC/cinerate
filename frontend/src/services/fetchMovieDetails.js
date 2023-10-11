@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import axios from "axios";
 
 export default function FetchMovieDetails(movie_id) {
     const [details, setDetails] = useState({ status: "", details: {} });

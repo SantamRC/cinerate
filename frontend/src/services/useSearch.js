@@ -11,11 +11,6 @@ export default function useSearch(content) {
         setRes({ status: "" });
 
         try {
-            // const response = await axios(
-            //     `/.netlify/functions/searchContent?query=${query}&content=${content}`
-            // );
-            // setRes(response.data);
-
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'

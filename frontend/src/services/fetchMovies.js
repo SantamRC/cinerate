@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import axios from "axios";
 
 export default function useFetchMovies(type = "popular") {
   const [page, setPage] = useState(1);

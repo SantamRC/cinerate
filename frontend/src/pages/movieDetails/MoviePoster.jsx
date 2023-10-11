@@ -38,26 +38,9 @@ export default function MoviePoster({ movie }) {
           <span>{movie.vote_average.toFixed(1)}</span>
         </div>
 
-        {/* <div className="movie-genres">
-          {movie.genres.map(genre => (
-            <span className="movie-genre" key={genre.id}>
-              {genre.name}
-            </span>
-          ))}
-        </div> */}
 
         <p className="movie-description">{movie.overview}</p>
 
-        {/* <a
-          href={`https://www.youtube.com/watch?v=${
-            movie.videos.filter(video => video.type === "Trailer").at(-1).key
-          }`}
-          className="btn btn-primary"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Watch Trailer
-        </a> */}
       </div>
     </section>
   );

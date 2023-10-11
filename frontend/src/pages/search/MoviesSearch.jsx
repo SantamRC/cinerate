@@ -1,5 +1,4 @@
 // Custom Hooks
-import useMeta from "../../hooks/useMeta";
 import useSearch from "../../services/useSearch";
 
 // Components
@@ -7,7 +6,6 @@ import SearchForm from "./SearchForm";
 import Cards from "./Cards";
 
 export default function MoviesSearch() {
-  useMeta({ title: "Search Movies | Movieplex", description: "" });
   const [query, res, handleQuery, handleSearchForm] = useSearch("movie");
 
   return (

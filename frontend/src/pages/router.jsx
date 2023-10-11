@@ -8,7 +8,6 @@ import {
 /* Layouts */
 import RootLayout from "../layouts/RootLayout";
 import MoviesLayout from "../layouts/MoviesLayout";
-import SearchLayout from "../layouts/SearchLayout";
 
 // /* Pages */
 import Home from "./home/Home";
