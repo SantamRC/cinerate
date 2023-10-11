@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 
 import Loader from "../../components/Loader";
 
@@ -7,7 +7,6 @@ import MoviesCarousel from "./MoviesCarousel";
 import topmovies from "../../services/topmovies";
 
 const Movies = lazy(() => import("./Movies"));
-// const Shows = lazy(() => import("./Shows"));
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -27,9 +26,7 @@ export default function Home() {
       </section>
 
       <section className="movies-shows-wrapper">
-        <Suspense fallback={<Loader />}>
-          <Movies movies={movies} title={"Popular Movies"} type={"popular"} />
-        </Suspense>
+        <Movies movies={movies} title={"Popular Movies"} type={"popular"} />
       </section>
     </main>
   );
