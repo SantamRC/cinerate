@@ -11,12 +11,14 @@ const Movies = lazy(() => import("./Movies"));
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     topmovies().then((res) => setMovies(res));
+    setTimeout(() => setLoading(false), 2000);
   }, []);
 
-  // if (res.status !== "success") return <InitialLoader />;
+  if (loading) return <Loader />;
 
   return (
     <main className="container home-container">
@@ -26,11 +28,7 @@ export default function Home() {
 
       <section className="movies-shows-wrapper">
         <Suspense fallback={<Loader />}>
-          <Movies
-            movies={movies}
-            title={"Popular Movies"}
-            type={"popular"}
-          />
+          <Movies movies={movies} title={"Popular Movies"} type={"popular"} />
         </Suspense>
       </section>
     </main>

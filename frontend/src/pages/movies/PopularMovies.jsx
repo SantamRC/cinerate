@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 // Hooks
 import useFetchMovies from "../../services/fetchMovies";
 
@@ -6,9 +8,14 @@ import Card from "../../components/Card";
 import InitialLoader from "../../components/InitialLoader";
 
 export default function PopularMovies() {
+  const [loading, setLoading] = useState(true);
   const [res, loadMovies] = useFetchMovies();
 
-  if (res.status !== "success") return <InitialLoader />;
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+
+  if (loading) return <InitialLoader />;
 
   return (
     <>
