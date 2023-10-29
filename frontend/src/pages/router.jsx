@@ -38,6 +38,7 @@ const router = createBrowserRouter(
         <Route index element={<MoviesSearch />} />
         <Route path="movies" element={<MoviesSearch />} />
       </Route> */}
+      
 
       <Route path="search" element={<MoviesSearch />} />
 
